@@ -82,8 +82,8 @@ portraitButtons.forEach(button => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Default initial load targeted directly on Miku
-    const defaultSelection = document.querySelector('.portrait-circle[data-id="miku"]');
+    // Matches the updated casing configuration attribute
+    const defaultSelection = document.querySelector('.portrait-circle[data-id="Miku"]');
     if (defaultSelection) {
         switchCharacter(defaultSelection);
     }
