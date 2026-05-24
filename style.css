@@ -1,0 +1,217 @@
+/* --- 🪐 Global Settings & Deep Space Canvas --- */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #0a0a10; 
+    color: #e2e8f0;
+    font-family: 'Rajdhani', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* --- 🎛️ Master Dashboard Grid (60/40 Desktop Split) --- */
+.hub-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;
+    min-height: 600px;
+    background: rgba(20, 20, 30, 0.8);
+    border: 2px solid #222235;
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* --- 🌌 Left Side: Viewport & Canvas Layers --- */
+.display-viewport {
+    position: relative;
+    background: #050508;
+    border-right: 2px solid #222235;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    padding: 40px;
+    overflow: hidden; 
+}
+
+.hexagon-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; 
+}
+
+.art-frame {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 75%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+/* 🏎️ Linear Slide-In Animation Frame */
+.character-slide {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    transform: translateX(-150%); 
+    transition: transform 0.8s linear; 
+}
+
+.character-slide.active-entry {
+    transform: translateX(0);
+}
+
+/* UI Terminal Info Sheet */
+.bio-card {
+    position: relative;
+    z-index: 4; 
+    background: rgba(10, 10, 15, 0.95);
+    border-left: 4px solid var(--current-glow, #00f2fe); 
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: border-color 0.3s ease;
+}
+
+.bio-name {
+    margin: 0 0 10px 0;
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.bio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.bio-row {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.bio-row strong {
+    color: #64748b;
+}
+
+/* --- 🔋 Right Side: Grid Selector Console --- */
+.selector-panel {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    background: #0d0d14;
+    z-index: 2;
+}
+
+.company-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.group-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #475569;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 5px;
+}
+
+.portrait-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+/* --- ⭕ Interactive Circle Portrait Buttons --- */
+.portrait-circle {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: #161622;
+    background-repeat: no-repeat;
+    border: 3px solid var(--accent-3); 
+    cursor: pointer;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+    transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+    /* 🔍 FACE-ZOOM MATRIX: Uniform sizing for clean closeups */
+    background-size: 210%; 
+
+    /* 🧼 Standard cross-browser image anti-aliasing rendering options */
+    image-rendering: auto;
+    transform: translateZ(0);                    
+    -webkit-backface-visibility: hidden;         
+    backface-visibility: hidden;
+    outline: 1px solid transparent; 
+}
+
+.portrait-circle:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-2);
+    box-shadow: 0 0 12px var(--accent-3);
+}
+
+.portrait-circle.active {
+    border-color: var(--accent-1);
+    box-shadow: 0 0 20px var(--accent-1), inset 0 0 5px rgba(255,255,255,0.2);
+    transform: scale(1.05);
+}
+
+/* --- 📱 Universal Mobile Safety Net Media Query --- */
+@media (max-width: 968px) {
+    .hub-container {
+        grid-template-columns: 100% !important;
+        height: auto;
+        min-height: unset;
+    }
+
+    .display-viewport {
+        border-right: none;
+        border-bottom: 2px solid #222235;
+        height: 450px;
+        padding: 20px;
+    }
+
+    .art-frame {
+        height: 65%;
+    }
+
+    .selector-panel {
+        padding: 30px 20px;
+        gap: 30px;
+    }
+}
+
+/* --- ⬡ Hexagon Particle Core Geometry --- */
+.hexagon {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background-color: #ffffff; 
+    transform: translate(-50%, -50%); 
+    transition: all 0.5s ease;
+}

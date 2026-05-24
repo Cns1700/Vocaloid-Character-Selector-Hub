@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocaloid & CeVIO // Character Selector Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="hub-container">
+        <section class="display-viewport">
+            <div class="hexagon-canvas" id="hexagonCanvas"></div>
+            
+            <div class="art-frame">
+                <img id="mainArtwork" src="" alt="" class="character-slide">
+            </div>
+
+            <div class="bio-card">
+                <h2 id="charName" class="bio-name"></h2>
+                <div class="bio-grid">
+                    <div class="bio-row"><strong>COMPANY:</strong> <span id="charCompany"></span></div>
+                    <div class="bio-row"><strong>RELEASE DATE:</strong> <span id="charDate"></span></div>
+                    <div class="bio-row"><strong>VOICE PROVIDER:</strong> <span id="charVoice"></span></div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="selector-panel">
+            
+            <div class="company-group">
+                <h3 class="group-title">CRYPTON FUTURE MEDIA</h3>
+                <div class="portrait-grid">
+                    <button class="portrait-circle active" data-id="miku" data-name="Hatsune Miku" data-company="Crypton Future Media (CFM)" data-date="August 31, 2007" data-voice="Saki Fujita" style="--accent-1: #00f2fe; --accent-2: #00adb5; --accent-3: #114e52; background-image: url('CFM/miku.png'); background-position: 51% 8%;"></button>
+                    <button class="portrait-circle" data-id="rin" data-name="Kagamine Rin" data-company="Crypton Future Media (CFM)" data-date="December 27, 2007" data-voice="Asami Shimoda" style="--accent-1: #ffb300; --accent-2: #cc8f00; --accent-3: #5c4000; background-image: url('CFM/rin.png'); background-position: 50% 6%;"></button>
+                    <button class="portrait-circle" data-id="len" data-name="Kagamine Len" data-company="Crypton Future Media (CFM)" data-date="December 27, 2007" data-voice="Asami Shimoda" style="--accent-1: #fff200; --accent-2: #cccc00; --accent-3: #5c5c00; background-image: url('CFM/len.png'); background-position: 50% 12%;"></button>
+                    <button class="portrait-circle" data-id="luka" data-name="Megurine Luka" data-company="Crypton Future Media (CFM)" data-date="January 30, 2009" data-voice="Yuu Asakawa" style="--accent-1: #ff007f; --accent-2: #cc0066; --accent-3: #5c002e; background-image: url('CFM/luka.png'); background-position: 50% 11%;"></button>
+                    <button class="portrait-circle" data-id="meiko" data-name="MEIKO" data-company="Crypton Future Media (CFM)" data-date="November 5, 2004" data-voice="Meiko Haigou" style="--accent-1: #ff003c; --accent-2: #cc0030; --accent-3: #5c0016; background-image: url('CFM/meiko.png'); background-position: 48% 6%;"></button>
+                    <button class="portrait-circle" data-id="kaito" data-name="KAITO" data-company="Crypton Future Media (CFM)" data-date="February 17, 2006" data-voice="Naoto Fuuga" style="--accent-1: #0066ff; --accent-2: #0052cc; --accent-3: #00255c; background-image: url('CFM/kaito.png'); background-position: 50% 5%;"></button>
+                </div>
+            </div>
+
+            <div class="company-group">
+                <h3 class="group-title">CEVIO PROJECT</h3>
+                <div class="portrait-grid">
+                    <button class="portrait-circle" data-id="rose" data-name="ROSE" data-company="CeVIO" data-date="December 21, 2022" data-voice="Aiba Aina" style="--accent-1: #ff1493; --accent-2: #b8005d; --accent-3: #4a0022; background-image: url('CEVIO/rose.png'); background-position: 46% 12%;"></button>
+                    <button class="portrait-circle" data-id="suzuki-tsudumi" data-name="Suzuki Tsudumi" data-company="CeVIO AI" data-date="October 25, 2012" data-voice="Anju Inami" style="--accent-1: #00cc99; --accent-2: #009973; --accent-3: #004d3a; background-image: url('CEVIO/suzuki-tsudumi.png'); background-position: 63% 14%;"></button>
+                    <button class="portrait-circle" data-id="sekai" data-name="SEKAI" data-company="CeVIO" data-date="April 29, 2022" data-voice="Isekaijoucho" style="--accent-1: #00e5ff; --accent-2: #1a237e; --accent-3: #0a0e29; background-image: url('CEVIO/sekai.png'); background-position: 50% 12%;"></button>
+                    <button class="portrait-circle" data-id="ia" data-name="IA" data-company="CeVIO AI" data-date="January 27, 2012" data-voice="Lia" style="--accent-1: #ffcccc; --accent-2: #cca3a3; --accent-3: #5c4949; background-image: url('CEVIO/ia.png'); background-position: 50% 9%;"></button>
+                    <button class="portrait-circle" data-id="one" data-name="ONE" data-company="CeVIO AI" data-date="January 27, 2015" data-voice="ONE" style="--accent-1: #ff8833; --accent-2: #cc6d29; --accent-3: #5c3112; background-image: url('CEVIO/one.png'); background-position: 50% 10%;"></button>
+                    <button class="portrait-circle" data-id="kafu" data-name="Kafu (KAFU)" data-company="CeVIO AI" data-date="July 7, 2021" data-voice="KAF (Virtual Singer)" style="--accent-1: #e066ff; --accent-2: #b352cc; --accent-3: #51255c; background-image: url('CEVIO/kafu.png'); background-position: 50% 11%;"></button>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
