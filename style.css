@@ -69,8 +69,9 @@ body {
     height: 100%;
     width: auto;
     object-fit: contain;
-    transform: translateX(-150%); 
-    transition: transform 0.8s linear; 
+    transform: translateX(-190%); 
+    /* Increased from 0.8s to 1.0s for a slower glide effect */
+    transition: transform 1.0s ease-out; 
 }
 
 .character-slide.active-entry {
@@ -161,10 +162,10 @@ body {
 
     /* 🧼 Standard cross-browser image anti-aliasing rendering options */
     image-rendering: auto;
-    transform: translateZ(0);                    
-    -webkit-backface-visibility: hidden;         
-    backface-visibility: hidden;
     outline: 1px solid transparent; 
+
+    /* 🚀 Forces graphics processing to keep transitions crisp */
+    will-change: transform; 
 }
 
 .portrait-circle:hover {

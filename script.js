@@ -71,7 +71,7 @@ function switchCharacter(button) {
         charCompany.textContent = company;
         charDate.textContent = date;
         charVoice.textContent = voice;
-    }, 50);
+    }, 1000);
 
     generateHexagons(button);
 }
